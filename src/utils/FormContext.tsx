@@ -1,14 +1,8 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { createContext, useContext, useMemo, useState } from "react";
 
 export type FormContextType = {
-  activeFormId: string;
-  setActiveFormId: (activeFormId: string) => void;
+  activeForm: number;
+  setActiveForm: (activeForm: number) => void;
 };
 
 const FormContext = createContext<FormContextType | undefined>(undefined);
@@ -16,18 +10,14 @@ const FormContext = createContext<FormContextType | undefined>(undefined);
 export const FormProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [activeFormId, setActiveFormId] = useState<string>("");
-
-  useEffect(() => {
-    setActiveFormId("Info");
-  }, []);
+  const [activeForm, setActiveForm] = useState<number>(1);
 
   const value = useMemo(
     () => ({
-      activeFormId,
-      setActiveFormId,
+      activeForm,
+      setActiveForm,
     }),
-    []
+    [activeForm, setActiveForm]
   );
 
   return <FormContext.Provider value={value}>{children}</FormContext.Provider>;

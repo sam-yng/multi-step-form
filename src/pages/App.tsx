@@ -1,13 +1,13 @@
 import React from "react";
 import "../css/index.css";
-import FormBox from "../components/FormBox";
+import Container from "../components/Container";
 import { FormProvider } from "../utils/FormContext";
 
 const App: React.FC = () => {
   return (
     <FormProvider>
       <main className="bg-[#F0F6FF] h-screen">
-        <FormBox />
+        <Container />
       </main>
     </FormProvider>
   );

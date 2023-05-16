@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export const content = ["./src/**/*.{js,jsx,ts,tsx}"];
 export const theme = {
-  extend: {},
+  extend: {
+    fontFamily: {
+      UbBold: ["UbBold"],
+      UbMedium: ["UbMedium"],
+      UbRegular: ["UbRegular"]
+    }
+  },
 };
 export const plugins = [];
 
